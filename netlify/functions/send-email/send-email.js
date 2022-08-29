@@ -21,34 +21,44 @@ const handler = async (event) => {
     }
   }
 
-  const body = JSON.parse(event.body)
-
-  try {
-    validateLength('body.name', body.name, NAME_MIN_LENGTH, NAME_MAX_LENGTH)
-  } catch (error) {
-    return {
-      statusCode: 403,
-      body: error.message,
-    }
+  // const body = JSON.parse(event.body)
+  const body = {
+    name: 'Elian',
+    email: 'elianibaj@gmail.com',
+    details: 'It works',
   }
 
-  try {
-    validateEmail('body.email', body.email)
-  } catch (error) {
-    return {
-      statusCode: 403,
-      body: error.message,
-    }
-  }
+  // try {
+  //   validateLength('body.name', body.name, NAME_MIN_LENGTH, NAME_MAX_LENGTH)
+  // } catch (error) {
+  //   return {
+  //     statusCode: 403,
+  //     body: error.message,
+  //   }
+  // }
 
-  try {
-    validateLength('body.details', body.details, DETAILS_MIN_LENGTH, DETAILS_MAX_LENGTH)
-  } catch (error) {
-    return {
-      statusCode: 403,
-      body: error.message,
-    }
-  }
+  // try {
+  //   validateEmail('body.email', body.email)
+  // } catch (error) {
+  //   return {
+  //     statusCode: 403,
+  //     body: error.message,
+  //   }
+  // }
+
+  // try {
+  //   validateLength(
+  //     'body.details',
+  //     body.details,
+  //     DETAILS_MIN_LENGTH,
+  //     DETAILS_MAX_LENGTH
+  //   )
+  // } catch (error) {
+  //   return {
+  //     statusCode: 403,
+  //     body: error.message,
+  //   }
+  // }
 
   const descriptor = {
     from: `"${body.email}" <no-reply@gql-modules.com>`,
